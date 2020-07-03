@@ -1,17 +1,17 @@
 package epam.dedik.day5.service;
 
-import by.epam.dedik.day5.service.impl.RegexChangeService;
+import by.epam.dedik.day5.service.impl.StringChangeService;
 import epam.dedik.day5.data.DataTransfer;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RegexChangeServiceTest {
-    private RegexChangeService regexChangeService;
+public class StringChangeServiceTest {
+    private StringChangeService stringChangeService;
 
     @BeforeClass
-    public void setRegexChangeService() {
-        regexChangeService = new RegexChangeService();
+    public void setStringChangeService() {
+        stringChangeService = new StringChangeService();
     }
 
     @Test(dataProvider = "getData", dataProviderClass = DataTransfer.class)
@@ -21,7 +21,7 @@ public class RegexChangeServiceTest {
                 "t5at c5n m5tch a5bitrary c5aracter s5quences a5ainst t5e r5gular e5pression. A5l o5 t5e s5ate " +
                 "i5volved i5 p5rforming a m5tch r5sides i5 t5e m5tcher, s5 m5ny m5tchers c5n s5are t5e s5me p5ttern.";
         expected = expected.trim();
-        String actual = regexChangeService.changeSymbolByPosition(data, '5', 2).trim();
+        String actual = stringChangeService.changeSymbolByPosition(data, '5', 2).trim();
         Assert.assertEquals(actual, expected);
     }
 
@@ -31,7 +31,7 @@ public class RegexChangeServiceTest {
                 "instance o5 this class. The resulting pattern can then be used to create a Matcher o5ject that " +
                 "can match arbitrary character sequences against the regular expressio5. All o5 the state invo5ved " +
                 "in perfo5ming a match resides in the matcher, so many matchers can share the same pattern.";
-        String actual = regexChangeService.changeLetterAfterLetter(data, 'o', '5');
+        String actual = stringChangeService.changeLetterAfterLetter(data, 'o', '5');
         Assert.assertEquals(actual, expected);
     }
 
@@ -41,7 +41,7 @@ public class RegexChangeServiceTest {
                 "instance q this class. The resulting pattern can then q used q create a Matcher object " +
                 "that can match arbitrary character sequences against the regular expression. All q the state " +
                 "involved q performing a match resides q the matcher, q many matchers can share the same pattern.";
-        String actual = regexChangeService.changeWordByLength(data, "q", 2);
+        String actual = stringChangeService.changeWordByLength(data, "q", 2);
         Assert.assertEquals(actual, expected);
     }
 }
