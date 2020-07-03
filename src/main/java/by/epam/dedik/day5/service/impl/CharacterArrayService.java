@@ -4,8 +4,7 @@ public class CharacterArrayService {
     static final char[] DELIMITERS = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
             '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
             '[', '\\', ']', '^', '_', '`', '|', '~'};
-    static final char[] VOWELS = {'A', 'a', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У',
-            'у', 'Ы', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'};
+    static final char[] VOWELS = {'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y'};
 
 
     protected int nextDelimiter(char[] chars, int lastDelimiter) {

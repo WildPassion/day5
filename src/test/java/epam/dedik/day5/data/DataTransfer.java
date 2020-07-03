@@ -9,10 +9,11 @@ public class DataTransfer {
     @DataProvider(name = "getData")
     public Object[][] getData() {
         return new Object[][]{{
-                "ЗАМЕЧАНИЕ: неправильно сформулированный запрос может вернуть \"правильные\" данные на текущем " +
-                        "состоянии базы данных. Поэтому не стоит удивляться, если результаты неверного запроса " +
-                        "совпадут с правильными результатами, но при этом запрос будет оценен системой проверки " +
-                        "как неверный."
+                "A regular expression, specified as a string, must first be compiled into an instance" +
+                        " of this class. The resulting pattern can then be used to create a Matcher object " +
+                        "that can match arbitrary character sequences against the regular expression. All of the" +
+                        " state involved in performing a match resides in the matcher, so many matchers can share " +
+                        "the same pattern."
         }};
     }
 }

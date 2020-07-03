@@ -16,28 +16,31 @@ public class ArrayChangeServiceTest {
 
     @Test(dataProvider = "getData", dataProviderClass = DataTransfer.class)
     public void changeSymbolByPosition_string_correctString(String data) {
-        String expected = "З5МЕЧАНИЕ: н5правильно с5ормулированный з5прос м5жет в5рнуть \"п5авильные\" д5нные" +
-                " н5 т5кущем с5стоянии б5зы д5нных. П5этому н5 с5оит у5ивляться, е5ли р5зультаты н5верного з5проса" +
-                " с5впадут с5п5авильными р5зультатами, н5 п5и э5ом з5прос б5дет о5енен с5стемой п5оверки к5к н5верный.";
+        String expected = "A r5gular e5pression, s5ecified a5 a5s5ring, m5st f5rst b5 c5mpiled i5to a5 i5stance" +
+                " o5 t5is c5ass. T5e r5sulting p5ttern c5n t5en b5 u5ed t5 c5eate a5M5tcher o5ject t5at c5n m5tch " +
+                "a5bitrary c5aracter s5quences a5ainst t5e r5gular e5pression. A5l o5 t5e s5ate i5volved i5" +
+                " p5rforming a5m5tch r5sides i5 t5e m5tcher, s5 m5ny m5tchers c5n s5are t5e s5me p5ttern.";
         String actual = arrayChangeService.changeSymbolByPosition(data, '5', 2);
         Assert.assertEquals(actual, expected);
     }
 
     @Test(dataProvider = "getData", dataProviderClass = DataTransfer.class)
     public void changeLetterAfterLetter_string_correctString(String data) {
-        String expected = "ЗАМЕЧАНИЕ: неправильно сфо5мулиро5анный запро5 мо5ет вернуть \"правильные\" данные" +
-                " на текущем со5то5нии базы данных. По5то5у не сто5т удивляться, если результаты неверно5о запро5а " +
-                "со5падут с правильными результатами, но при это5 запро5 будет о5енен системо5 про5ерки как неверный.";
-        String actual = arrayChangeService.changeLetterAfterLetter(data, 'о', '5');
+        String expected = "A regular expressio5, specified as a string, must first be co5piled into an instance o5 " +
+                "this class. The resulting pattern can then be used to create a Matcher o5ject that can match " +
+                "arbitrary character sequences against the regular expressio5. All o5 the state invo5ved in " +
+                "perfo5ming a match resides in the matcher, so many matchers can share the same pattern.";
+        String actual = arrayChangeService.changeLetterAfterLetter(data, 'o', '5');
         Assert.assertEquals(actual, expected);
     }
 
     @Test(dataProvider = "getData", dataProviderClass = DataTransfer.class)
     public void changeWordByLength_string_correctString(String data) {
-        String expected = "ЗАМЕЧАНИЕ: неправильно сформулированный запрос может вернуть \"правильные\" данные q " +
-                "текущем состоянии базы данных. Поэтому q стоит удивляться, если результаты неверного запроса совпадут" +
-                " с правильными результатами, q при этом запрос будет оценен системой проверки как неверный.";
-        String actual = arrayChangeService.changeWordByLength(data, "q", 2);
+        String expected = "A regular expression, specified 5 a string, must first 5 compiled into 5 instance 5 " +
+                "this class. The resulting pattern can then 5 used 5 create a Matcher object that can match " +
+                "arbitrary character sequences against the regular expression. All 5 the state involved 5 " +
+                "performing a match resides 5 the matcher, 5 many matchers can share the same pattern.";
+        String actual = arrayChangeService.changeWordByLength(data, "5", 2);
         Assert.assertEquals(actual, expected);
     }
 }
