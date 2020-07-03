@@ -1,18 +1,11 @@
 package by.epam.dedik.day5.service.impl;
 
 import by.epam.dedik.day5.service.ChangeText;
-import by.epam.dedik.day5.validator.WordValidator;
 
 public class ArrayChangeService implements ChangeText {
     private static final char[] DELIMITER = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
             '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
             '[', '\\', ']', '^', '_', '`', '|', '~'};
-
-    private WordValidator validator;
-
-    public ArrayChangeService() {
-        validator = new WordValidator();
-    }
 
     @Override
     public String changeSymbolByPosition(String text, char symbol, int position) {
@@ -91,8 +84,6 @@ public class ArrayChangeService implements ChangeText {
             i = nextDelimiter;
             lastDelimiter = nextDelimiter;
         }
-        System.out.println(resultLastDelimiter);
-
         return String.valueOf(result);
     }
 
