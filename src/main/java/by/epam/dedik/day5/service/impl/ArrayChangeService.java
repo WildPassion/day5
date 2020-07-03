@@ -1,11 +1,18 @@
 package by.epam.dedik.day5.service.impl;
 
 import by.epam.dedik.day5.service.ChangeText;
+import by.epam.dedik.day5.validator.WordValidator;
 
 public class ArrayChangeService implements ChangeText {
     private static final char[] DELIMITER = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
             '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
             '[', '\\', ']', '^', '_', '`', '|', '~'};
+
+    private WordValidator validator;
+
+    public ArrayChangeService() {
+        validator = new WordValidator();
+    }
 
     @Override
     public String changeSymbolByPosition(String text, char symbol, int position) {
@@ -58,6 +65,7 @@ public class ArrayChangeService implements ChangeText {
         int nextDelimiter;
         int lastDelimiter = 0;
         int resultLastDelimiter = 0;
+        int wordSize;
 
         int count = countWordsByLength(chars, length);
         int difference = count * (word.length() - length);
@@ -65,9 +73,9 @@ public class ArrayChangeService implements ChangeText {
 
         for (int i = 0; i < chars.length; i++) {
             nextDelimiter = nextDelimiter(chars, lastDelimiter);
+            wordSize = lastDelimiter == 0 ? nextDelimiter - lastDelimiter : nextDelimiter - lastDelimiter - 1;
 
-            if ((lastDelimiter == 0 && nextDelimiter - lastDelimiter == length)
-                    || nextDelimiter - lastDelimiter - 1 == length) {
+            if (wordSize == length) {
                 if (resultLastDelimiter != 0 && lastDelimiter != 0) {
                     result[resultLastDelimiter++] = chars[lastDelimiter];
                 }
@@ -75,7 +83,8 @@ public class ArrayChangeService implements ChangeText {
                 System.arraycopy(word.toCharArray(), 0, result, resultLastDelimiter, word.length());
                 resultLastDelimiter += word.length();
             } else {
-                System.arraycopy(chars, lastDelimiter, result, resultLastDelimiter, nextDelimiter - lastDelimiter + 1);
+                System.arraycopy(chars, lastDelimiter, result, resultLastDelimiter,
+                        nextDelimiter - lastDelimiter + 1);
                 resultLastDelimiter += nextDelimiter - lastDelimiter;
             }
 
@@ -91,12 +100,13 @@ public class ArrayChangeService implements ChangeText {
         int nextDelimiter;
         int lastDelimiter = 0;
         int count = 0;
+        int wordSize;
 
         for (int i = 0; i < chars.length; i++) {
             nextDelimiter = nextDelimiter(chars, lastDelimiter);
+            wordSize = lastDelimiter == 0 ? nextDelimiter - lastDelimiter : nextDelimiter - lastDelimiter - 1;
 
-            if ((lastDelimiter == 0 && nextDelimiter - lastDelimiter == length)
-                    || nextDelimiter - lastDelimiter - 1 == length) {
+            if (wordSize == length) {
                 count++;
             }
 

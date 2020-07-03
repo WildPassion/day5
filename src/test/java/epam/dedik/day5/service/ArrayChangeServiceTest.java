@@ -48,6 +48,6 @@ public class ArrayChangeServiceTest {
                 "текущем состоянии базы данных. Поэтому q стоит удивляться, если результаты неверного запроса совпадут" +
                 " с правильными результатами, q при этом запрос будет оценен системой проверки как неверный.";
         String actual = arrayChangeService.changeWordByLength(data, "q", 2);
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(actual, expected);
     }
 }
