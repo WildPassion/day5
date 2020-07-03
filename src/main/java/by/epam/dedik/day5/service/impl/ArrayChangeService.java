@@ -1,10 +1,15 @@
 package by.epam.dedik.day5.service.impl;
 
+import by.epam.dedik.day5.exception.WrongDataException;
 import by.epam.dedik.day5.service.ChangeText;
 
 public class ArrayChangeService extends CharacterArrayService implements ChangeText {
     @Override
-    public String changeSymbolByPosition(String text, char symbol, int position) {
+    public String changeSymbolByPosition(String text, char symbol, int position) throws WrongDataException {
+        if (text == null || position < 0) {
+            throw new WrongDataException(String.format("Wrong value of parameters text: %s position: %d",
+                    text, position));
+        }
         char[] chars = text.toCharArray();
         int nextDelimiter;
         int lastDelimiter = 0;
@@ -25,7 +30,10 @@ public class ArrayChangeService extends CharacterArrayService implements ChangeT
     }
 
     @Override
-    public String changeLetterAfterLetter(String text, char afterLetter, char replaceLetter) {
+    public String changeLetterAfterLetter(String text, char afterLetter, char replaceLetter) throws WrongDataException {
+        if (text == null) {
+            throw new WrongDataException("Wrong value of parameters text: null");
+        }
         char[] chars = text.toCharArray();
         int nextDelimiter;
         int lastDelimiter = 0;
@@ -49,7 +57,10 @@ public class ArrayChangeService extends CharacterArrayService implements ChangeT
     }
 
     @Override
-    public String changeWordByLength(String text, String word, int length) {
+    public String changeWordByLength(String text, String word, int length) throws WrongDataException {
+        if (text == null || length < 0) {
+            throw new WrongDataException(String.format("Wrong value of parameters text: %s length: %d", text, length));
+        }
         char[] chars = text.toCharArray();
         int nextDelimiter;
         int lastDelimiter = 0;

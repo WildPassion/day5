@@ -1,10 +1,14 @@
 package by.epam.dedik.day5.service.impl;
 
+import by.epam.dedik.day5.exception.WrongDataException;
 import by.epam.dedik.day5.service.DeleteText;
 
 public class ArrayDeleteService extends CharacterArrayService implements DeleteText {
     @Override
-    public String deleteSymbolsExceptLetters(String text) {
+    public String deleteSymbolsExceptLetters(String text) throws WrongDataException {
+        if (text == null) {
+            throw new WrongDataException("Wrong value of parameters text: null");
+        }
         char[] chars = text.toCharArray();
         int j;
         for (int i = 0; i < chars.length; i++) {
@@ -23,7 +27,10 @@ public class ArrayDeleteService extends CharacterArrayService implements DeleteT
     }
 
     @Override
-    public String deleteVowelWordsByLength(String text, int length) {
+    public String deleteVowelWordsByLength(String text, int length) throws WrongDataException {
+        if (text == null || length < 0) {
+            throw new WrongDataException(String.format("Wrong value of parameters text: %s length: %d", text, length));
+        }
         char[] chars = text.toCharArray();
         int nextDelimiter;
         int lastDelimiter = 0;

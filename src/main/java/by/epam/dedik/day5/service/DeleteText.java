@@ -1,7 +1,9 @@
 package by.epam.dedik.day5.service;
 
-public interface DeleteText {
-    String deleteSymbolsExceptLetters(String text);
+import by.epam.dedik.day5.exception.WrongDataException;
 
-    String deleteVowelWordsByLength(String text, int length);
+public interface DeleteText {
+    String deleteSymbolsExceptLetters(String text) throws WrongDataException;
+
+    String deleteVowelWordsByLength(String text, int length) throws WrongDataException;
 }
