@@ -2,11 +2,7 @@ package by.epam.dedik.day5.service.impl;
 
 import by.epam.dedik.day5.service.ChangeText;
 
-public class ArrayChangeService implements ChangeText {
-    private static final char[] DELIMITERS = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
-            '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
-            '[', '\\', ']', '^', '_', '`', '|', '~'};
-
+public class ArrayChangeService extends ArrayDelimiterService implements ChangeText {
     @Override
     public String changeSymbolByPosition(String text, char symbol, int position) {
         char[] chars = text.toCharArray();
@@ -105,21 +101,5 @@ public class ArrayChangeService implements ChangeText {
             lastDelimiter = nextDelimiter;
         }
         return count;
-    }
-
-    private int nextDelimiter(char[] chars, int lastDelimiter) {
-        int j;
-        int i = lastDelimiter + 1;
-
-        while (i < chars.length) {
-            j = 0;
-            while (j < DELIMITERS.length) {
-                if (chars[i] == DELIMITERS[j++]) {
-                    return i;
-                }
-            }
-            i++;
-        }
-        return chars.length;
     }
 }

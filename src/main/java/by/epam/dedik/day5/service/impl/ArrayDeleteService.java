@@ -2,7 +2,7 @@ package by.epam.dedik.day5.service.impl;
 
 import by.epam.dedik.day5.service.DeleteText;
 
-public class ArrayDeleteService implements DeleteText {
+public class ArrayDeleteService extends ArrayDelimiterService implements DeleteText {
     @Override
     public String deleteSymbolsExceptLetters(String text) {
         return null;
