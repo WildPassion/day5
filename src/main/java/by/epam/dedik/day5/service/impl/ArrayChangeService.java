@@ -2,7 +2,7 @@ package by.epam.dedik.day5.service.impl;
 
 import by.epam.dedik.day5.service.ChangeText;
 
-public class ArrayChangeService extends ArrayDelimiterService implements ChangeText {
+public class ArrayChangeService extends CharacterArrayService implements ChangeText {
     @Override
     public String changeSymbolByPosition(String text, char symbol, int position) {
         char[] chars = text.toCharArray();
