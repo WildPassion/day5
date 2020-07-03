@@ -3,7 +3,7 @@ package by.epam.dedik.day5.service.impl;
 import by.epam.dedik.day5.service.ChangeText;
 
 public class ArrayChangeService implements ChangeText {
-    private static final char[] DELIMITER = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
+    private static final char[] DELIMITERS = {' ', '{', '}', '!', '\"', '#', '$', '%', '&', '\'',
             '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
             '[', '\\', ']', '^', '_', '`', '|', '~'};
 
@@ -113,8 +113,8 @@ public class ArrayChangeService implements ChangeText {
 
         while (i < chars.length) {
             j = 0;
-            while (j < DELIMITER.length) {
-                if (chars[i] == DELIMITER[j++]) {
+            while (j < DELIMITERS.length) {
+                if (chars[i] == DELIMITERS[j++]) {
                     return i;
                 }
             }
